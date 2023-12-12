@@ -59,8 +59,13 @@ class MRController extends Controller
         } else {
             return view('medical-reports.index'); 
         }
-        $sheetIndex = $requestValues[0];
+
+        if (!Storage::exists($requestValues[1])) {
+            return view('medical-reports.index');
+         }
         $path = $requestValues[1];
+        
+        $sheetIndex = $requestValues[0];
         $fileName = $requestValues[2];
         $sheetName = $requestValues[3];
 
@@ -117,6 +122,10 @@ class MRController extends Controller
         return($examsTypes);
     }
 
+
+    //
+    //  Old function: not use
+    //
     public function readSheet($request) 
     {
         
@@ -154,7 +163,13 @@ class MRController extends Controller
         } else {
             return view('medical-reports.index'); 
         }
+        
+        if (!Storage::exists($requestValues[1])) {
+            return view('medical-reports.index');
+         }
         $path = $requestValues[1];
+        
+
         $fileName = $requestValues[2];
         $sheetName = $requestValues[3];
         $examType = $requestValues[4];
@@ -180,6 +195,10 @@ class MRController extends Controller
         ]);
     }
 
+
+    //
+    //  Old function: not use
+    //
     public function getAllResultTogether($collection)
     {
         /*
