@@ -35,18 +35,20 @@
 
     </head>
     <body class="antialiased bg-gray-100 dark:bg-slate-800">
-        <div class="min-h-screen">
-            @include('layouts.navigation-app')
-
+        <div class="flex flex-col h-screen">
             <!-- Page Heading -->
-            <header class="bg-white dark:bg-slate-700 shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
+            <div class="w-full">
+                @include('layouts.navigation-app')
+
+                <header class="z-0 bg-white dark:bg-slate-700 shadow">
+                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                        {{ $header }}
+                    </div>
+                </header>
+            </div>
 
             <!-- Page Content -->
-            <main>
+            <main class="overflow-y-auto">
                 {{ $slot }}
             </main>
         </div>

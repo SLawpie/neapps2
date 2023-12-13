@@ -7,11 +7,11 @@
         </h2>
     </x-slot>
 
-    <div class="pt-8">
+    <div class="pt-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="sm:flex items-center p-6 order-b border-gray-200">
-                    <div class="fsm:lex-none">
+                    <div class="sm:flex-none">
                         <div class="text-xl font-bold">
                             {{ $sheetName }}
                         </div>
