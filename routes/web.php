@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MedicalReports\MRController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,9 @@ Route::prefix('medical-report')->name('medical-reports.')->group(function(){
 });
 // })->middleware(['auth']);
 
+Route::prefix('user')->name('user.')->group(function(){
+    Route::get('/', [UserController::class, 'index'])->name('index');
+});
 
 // Route::group(['middleware' => ['auth']], function(){
 //     Route::resource('roles', 'RoleController');

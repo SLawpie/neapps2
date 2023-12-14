@@ -42,7 +42,7 @@ if ($('#main').hasClass('dark')) {
     $('#dark-icon').toggleClass('hidden', true);
     $('#light-icon').toggleClass('hidden', false);
     document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f3f4f6')
-} 
+}
 
 function pleaseWait(i) {
     var pwText = '#please-wait-text-' + i;
@@ -50,4 +50,10 @@ function pleaseWait(i) {
     $(pwText).toggleClass('hidden', true);
     $(pw).toggleClass('hidden', false);
   //   setTimeout(donothing,2000);
-  };
+}
+
+function hamClick() {
+    
+}
+
+

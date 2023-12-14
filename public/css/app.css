@@ -1010,9 +1010,6 @@ video {
   opacity: 1;
 }:is(.dark .dark\:visible) {
   visibility: visible;
-}:is(.dark .dark\:border-fuchsia-300) {
-  --tw-border-opacity: 1;
-  border-color: rgb(240 171 252 / var(--tw-border-opacity));
 }:is(.dark .dark\:border-fuchsia-500) {
   --tw-border-opacity: 1;
   border-color: rgb(217 70 239 / var(--tw-border-opacity));

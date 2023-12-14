@@ -19,8 +19,8 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('app.home') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')">
-                        {{ __('app.test') }}
+                    <x-nav-link :href="route('medical-reports.index')">
+                        {{ __('medical-reports.name') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                             </div>
                         </div>
                         <div class="pt-2">
-                            <x-dropdown-link >
+                            <x-dropdown-link :href="route('user.index')">
                                 {{ __('app.user.settings') }}
                             </x-dropdown-link>
                             <form method="POST" action="{{ route('logout') }}">
@@ -78,7 +78,9 @@
 
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-slate-800 dark:text-gray-100 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-slate-800 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                <button @click="open = ! open" 
+                    class="inline-flex items-center justify-center p-2 rounded-md text-slate-800 dark:text-gray-100 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-slate-800 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
+                    onclick="hamClick()">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -94,13 +96,13 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('app.home') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('dashboard')">
-                {{ __('app.test') }}
+            <x-responsive-nav-link :href="route('medical-reports.index')">
+                {{ __('medical-reports.name') }}
             </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-blue-300 dark:border-fuchsia-300">
+        <div class="pt-4 pb-1 border-t border-blue-300 dark:border-fuchsia-500">
             <div class="px-4 flex justify-between items-center">
                 <div>
                     <div class="font-medium text-base text-slate-800 dark:text-gray-100">
@@ -116,6 +118,9 @@
             </div>
 
             <div class="mt-3 space-y-1">
+                <x-responsive-nav-link :href="route('user.index')">
+                    {{ __('app.user.settings') }}
+                </x-responsive-nav-link>
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
