@@ -40,7 +40,7 @@
             <div class="w-full">
                 @include('layouts.navigation-app')
 
-                <header class="z-0 bg-white dark:bg-slate-700 shadow">
+                <header class="bg-white dark:bg-slate-700 drop-shadow-md">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>

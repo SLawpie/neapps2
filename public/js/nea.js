@@ -52,8 +52,4 @@ function pleaseWait(i) {
   //   setTimeout(donothing,2000);
 }
 
-function hamClick() {
-    
-}
-
 
