@@ -7,15 +7,15 @@
 
     <div class="pt-8">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="sm:flex items-center px-4 py-6 sm:px-6 order-b border-gray-200">
+            <div class="bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100 shadow-sm sm:rounded-lg">
+                <div class="sm:flex items-center px-4 py-6 sm:px-6 border-gray-200">
                     <div class="sm:flex-none w-full">
                         <div class="text-xl font-bold pb-4">
                             Informacje o profilu
                         </div>
 
                         <div class="flex justify-center w-full">
-                            <div class="flex flex-row w-full sm:w-3/4 ps-4 sm:ps-0">
+                            <div class="flex flex-row w-full sm:w-3/4 ps-8 sm:ps-0">
                                 <div class="h-28 w-28 sm:basis-1/3">
                                     <x-icons.user class="fill-gray-200 dark:fill-gray-500"/>
                                 </div>
@@ -43,13 +43,13 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div> 
             <div class="py-2"></div>
-            <div class="bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="sm:flex items-center px-4 py-6 sm:px-6 order-b border-gray-200">
+            <div class="bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100 shadow-sm sm:rounded-lg">
+                <div class="sm:flex items-center px-4 py-6 sm:px-6 border-gray-200">
                     <div class="sm:flex-none w-full">
                         <div class="text-xl font-bold pb-4">
                             Ustawienia regionalne
@@ -71,15 +71,15 @@
                 </div>
             </div>
             <div class="py-2"></div>
-            <div class="bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="sm:flex items-center px-4 py-6 sm:px-6 order-b border-gray-200">
+            <div class="bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100 shadow-sm sm:rounded-lg">
+                <div class="sm:flex items-center px-4 py-6 sm:px-6 border-gray-200">
                     <div class="sm:flex-none w-full">
                         <div class="text-xl font-bold pb-4">
                             Wygląd ogólny
                         </div>
-                        <div class="hidden sm:flex justify-center w-full">
-                            <div class="flex w-full lg:w-1/2">
-                                <div class="py-2 grid grid-cols-3 gap-1 w-full">
+                        <div class="flex justify-center w-full">
+                            <div class="flex w-full xl:w-1/2">
+                                <div class="py-2 grid grid-cols-1 md:grid-cols-3 gap-1 w-full">
                                     <div class="pt-2 grid gap-2 justify-items-center">
                                         <div class="h-28">
                                             <svg class="w-full h-full fill-gray-100 stroke-gray-400"
@@ -104,8 +104,8 @@
                                             Ciemny
                                         </div>
                                     </div>
-                                    <div class="pt-2 grid gap-2 justify-items-center border-2 rounded-md border-gray-400">
-                                        <div class="h-28">
+                                    <div class="pt-2 grid gap-2 justify-items-center">
+                                        <div class="h-28 border-2 rounded-md border-gray-400">
                                             <svg class="w-full h-full fill-slate-800  stroke-gray-400"
                                                 viewBox="0 0 24 16"
                                                 stroke-width="0.25">
@@ -118,7 +118,7 @@
                                                     d="M0 2 Q0 1 1 1 L23 1 Q24 1 24 2 L24 14 Z" />
                                             </svg>
                                         </div>
-                                        <div class="">
+                                        <div class="font-bold">
                                             Motyw systemu
                                         </div>
                                     </div>
@@ -129,8 +129,8 @@
                 </div>
             </div>
             <div class="py-2"></div>
-            <div class="bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="sm:flex items-center px-4 py-6 sm:px-6 order-b border-gray-200">
+            <div class="bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100 shadow-sm sm:rounded-lg">
+                <div class="sm:flex items-center px-4 py-6 sm:px-6 border-gray-200">
                     <div class="sm:flex-none w-full">
                         <div class="text-xl font-bold pb-4">
                             Ostatnia aktywność
