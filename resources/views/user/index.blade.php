@@ -82,7 +82,7 @@
                                 <div class="py-2 grid grid-cols-1 md:grid-cols-3 gap-1 w-full">
                                     <div class="pt-2 grid gap-2 justify-items-center">
                                         <div class="h-28">
-                                            <svg class="w-full h-full fill-gray-100 stroke-gray-400"
+                                            <svg class="w-full h-full fill-gray-100 stroke-gray-400 hover:stroke-[0.75px]"
                                                 viewBox="0 0 24 16"
                                                 stroke-width="0.25">
                                                 <rect width="24" height="14" rx="1" ry="1" y="1"/>
@@ -94,7 +94,7 @@
                                     </div>
                                     <div class="pt-2 grid gap-2 justify-items-center">
                                         <div class="h-28">
-                                            <svg class="w-full h-full fill-slate-800 stroke-gray-400"
+                                            <svg class="w-full h-full fill-slate-800 stroke-gray-400 hover:stroke-[0.75px]"
                                                 viewBox="0 0 24 16"
                                                 stroke-width="0.25">
                                                 <rect width="24" height="14" rx="1" ry="1" y="1"/>
@@ -105,8 +105,8 @@
                                         </div>
                                     </div>
                                     <div class="pt-2 grid gap-2 justify-items-center">
-                                        <div class="h-28 border-2 rounded-md border-gray-400">
-                                            <svg class="w-full h-full fill-slate-800  stroke-gray-400"
+                                        <div class="h-28">
+                                            <svg class="w-full h-full fill-slate-800 stroke-blue-500 dark:stroke-fuchsia-400 stroke-[0.75px]"
                                                 viewBox="0 0 24 16"
                                                 stroke-width="0.25">
                                                 <path
@@ -115,7 +115,7 @@
                                                     fill="#f3f4f6"
                                                     fill-rule="evenodd"
                                                     clip-rule="evenodd"
-                                                    d="M0 2 Q0 1 1 1 L23 1 Q24 1 24 2 L24 14 Z" />
+                                                    d="M0 2 Q0 1 1 1 L23 1 Q24 1 24 2 L24 14" />
                                             </svg>
                                         </div>
                                         <div class="font-bold">
@@ -150,13 +150,13 @@
                                 </div>
                                 <div class="table-row-group">
                                     <div class="table-row">
-                                      <div class="table-cell text-center">1</div>
-                                      <div class="table-cell text-center">9.06.2010</div>
-                                      <div class="hidden sm:table-cell">Edge</div>
-                                      <div class="hidden sm:table-cell">Windows 11</div>
-                                      <div class="table-cell text-center">192.168.1.1</div>
-                                      <div class="table-cell">Wenezuela</div>
-                                      <div class="table-cell font-bold text-center text-red-500 ">Błąd</div>
+                                      <div class="table-cell text-center">X</div>
+                                      <div class="table-cell text-center">X.XX.XXXX</div>
+                                      <div class="hidden sm:table-cell">Xxxxxx</div>
+                                      <div class="hidden sm:table-cell">Xxxxxxx XX</div>
+                                      <div class="table-cell text-center">XXX.XXX.XXX.XXX</div>
+                                      <div class="table-cell">Xxxxxxxxx</div>
+                                      <div class="table-cell font-bold text-center text-red-500 ">XXXX</div>
                                     </div>
                                 </div>
                             </div>
