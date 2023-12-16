@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">
+    <x-slot:header>
         <h2 class="bg-white dark:bg-slate-700 font-semibold text-xl text-slate-800 dark:text-gray-100 leading-tight">
             Zarządzanie kontem
         </h2>
@@ -82,7 +82,7 @@
                                 <div class="py-2 grid grid-cols-1 md:grid-cols-3 gap-1 w-full">
                                     <div class="pt-2 grid gap-2 justify-items-center">
                                         <div class="h-28">
-                                            <svg class="w-full h-full fill-gray-100 stroke-gray-400 hover:stroke-[0.75px]"
+                                            <svg id="lightTheme" class="w-full h-full fill-gray-100 stroke-gray-400 hover:stroke-[0.75px]"
                                                 viewBox="0 0 24 16"
                                                 stroke-width="0.25">
                                                 <rect width="24" height="14" rx="1" ry="1" y="1"/>
@@ -94,7 +94,7 @@
                                     </div>
                                     <div class="pt-2 grid gap-2 justify-items-center">
                                         <div class="h-28">
-                                            <svg class="w-full h-full fill-slate-800 stroke-gray-400 hover:stroke-[0.75px]"
+                                            <svg id="darkTheme" class="w-full h-full fill-slate-800 stroke-gray-400 hover:stroke-[0.75px]"
                                                 viewBox="0 0 24 16"
                                                 stroke-width="0.25">
                                                 <rect width="24" height="14" rx="1" ry="1" y="1"/>
@@ -106,7 +106,7 @@
                                     </div>
                                     <div class="pt-2 grid gap-2 justify-items-center">
                                         <div class="h-28">
-                                            <svg class="w-full h-full fill-slate-800 stroke-blue-500 dark:stroke-fuchsia-400 stroke-[0.75px]"
+                                            <svg id="systemTheme" class="w-full h-full stroke-gray-400 fill-slate-800 hover:stroke-[0.75px]"
                                                 viewBox="0 0 24 16"
                                                 stroke-width="0.25">
                                                 <path
@@ -167,5 +167,11 @@
             <div class="py-2"></div>
         </div>
     </div>
+
+    <x-slot:scripts>
+        <script type="text/javascript">
+            themeSelector();
+        </script>
+    </x-slot>
 
 </x-app-layout>

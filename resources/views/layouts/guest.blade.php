@@ -16,18 +16,14 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('css/nea.css') }}">
 
-        @if (isset($style))
-            {{ $style }}
-        @endif
-
         <!-- Scripts -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 
         <script type="text/javascript">
-            if (localStorage.toggled === 'dark' || (!('toggled' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                localStorage.toggled = 'dark';
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                localStorage.theme = 'dark';
             } else {
-                localStorage.toggled = '';
+                localStorage.theme = 'light';
             }
         </script>
 
@@ -45,8 +41,5 @@
         
         <!-- Scripts -->
         <script src="{{ asset('js/nea.js') }}"></script>
-        @if (isset($scripts))
-            {{ $scripts }}
-        @endif
     </body>
 </html>
