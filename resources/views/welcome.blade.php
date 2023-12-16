@@ -8,9 +8,5 @@
       </div>
     </a>
   </div>
-
-  <x-slot name="scripts">
-    
-  </x-slot>
-
+  
 </x-guest-layout>

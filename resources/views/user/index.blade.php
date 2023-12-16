@@ -81,7 +81,7 @@
                             <div class="flex w-full xl:w-1/2">
                                 <div class="py-2 grid grid-cols-1 md:grid-cols-3 gap-1 w-full">
                                     <div class="pt-2 grid gap-2 justify-items-center">
-                                        <div class="h-28">
+                                        <div class="h-28 cursor-pointer" onclick="switchTheme('light')">
                                             <svg id="lightTheme" class="w-full h-full fill-gray-100 stroke-gray-400 hover:stroke-[0.75px]"
                                                 viewBox="0 0 24 16"
                                                 stroke-width="0.25">
@@ -93,7 +93,7 @@
                                         </div>
                                     </div>
                                     <div class="pt-2 grid gap-2 justify-items-center">
-                                        <div class="h-28">
+                                        <div class="h-28 cursor-pointer" onclick="switchTheme('dark')">
                                             <svg id="darkTheme" class="w-full h-full fill-slate-800 stroke-gray-400 hover:stroke-[0.75px]"
                                                 viewBox="0 0 24 16"
                                                 stroke-width="0.25">
@@ -105,7 +105,7 @@
                                         </div>
                                     </div>
                                     <div class="pt-2 grid gap-2 justify-items-center">
-                                        <div class="h-28">
+                                        <div class="h-28 cursor-pointer" onclick="switchTheme('system')">
                                             <svg id="systemTheme" class="w-full h-full stroke-gray-400 fill-slate-800 hover:stroke-[0.75px]"
                                                 viewBox="0 0 24 16"
                                                 stroke-width="0.25">
@@ -118,7 +118,7 @@
                                                     d="M0 2 Q0 1 1 1 L23 1 Q24 1 24 2 L24 14" />
                                             </svg>
                                         </div>
-                                        <div class="font-bold">
+                                        <div class="">
                                             Motyw systemu
                                         </div>
                                     </div>

@@ -27,12 +27,30 @@
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
-                <button id="dark-icon" class="hidden dark:visible h-6 text-slate-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out" onclick="darkLight()">
-                    <x-icons.moon class="pe-4" />
-                </button>
-                <button id="light-icon" class="h-7 text-xs text-slate-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out" onclick="darkLight()">
-                    <x-icons.sun class="pe-4" />
-                </button>
+                <div id="dark-icon" class="hidden tooltip flex-col">
+                    <button 
+                        class=" h-6 text-slate-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out stroke-gray-400 hover:stroke-[0.75px]" 
+                        onclick="switchTheme('system')">
+                        <x-icons.moon class="pe-4" />
+                    </button>
+                    <div class="tooltip-text text-xs bg-slate-800 text-gray-100">Zmień wyglad na systemowy</div>
+                </div>
+                <div id="light-icon" class="tooltip flex flex-col">
+                    <button 
+                        class="h-7 text-slate-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out stroke-blue-500 dark:stroke-fuchsia-400 stroke-[0.75px]" 
+                        onclick="switchTheme('dark')">
+                            <x-icons.sun class="pe-4" />
+                    </button>
+                    <span class="tooltip-text text-xs bg-gray-200 text-slate-800">Zmień wyglad na ciemny</span>
+                </div>
+                <div id="system-icon" class="hidden tooltip flex-col">
+                    <button 
+                        class="h-7 text-xs text-slate-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out stroke-gray-400 hover:stroke-[0.75px]" 
+                        onclick="switchTheme('light')">
+                            <x-icons.system-theme class="pe-4" />
+                    </button>
+                    <div class="tooltip-text text-xs bg-gray-200 dark:bg-slate-800 text-slate-800 dark:text-gray-100">Zmień wyglad na jasny</div>
+                </div>
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="flex items-center text-sm font-medium text-slate-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
@@ -69,9 +87,6 @@
                                 </x-dropdown-link>
                             </form>
                         </div>  
-                        {{-- <div class="flex justify-end items-center p-2">
-                            <x-toggle-dark-light nr="1" />
-                        </div> --}}
                     </x-slot>
                 </x-dropdown>
             </div>
