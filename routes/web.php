@@ -41,6 +41,7 @@ Route::prefix('medical-report')->name('medical-reports.')->group(function(){
 Route::prefix('user')->name('user.')->group(function(){
     Route::get('/{id}', [UserController::class, 'show'])->name('show');
     Route::get('/edit/{id}', [UserController::class, 'edit'])->name('edit');
+    Route::post('/{id}', [UserController::class, 'update'])->name('update');
 });
 
 // Route::group(['middleware' => ['auth']], function(){

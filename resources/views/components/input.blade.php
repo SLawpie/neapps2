@@ -2,7 +2,7 @@
 
 @php
     $classes = ($disabled ?? false)
-                ? ''
+                ? 'bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100'
                 : 'rounded shadow-sm bg-gray-100 dark:bg-slate-800 text-slate-800 dark:text-gray-100 focus:outline-none focus:ring-4 ring-offset-2 ring-offset-gray-100 dark:ring-offset-slate-800 focus:ring-blue-500 dark:focus:ring-fuchsia-500';
 
     switch($type) {
@@ -21,4 +21,4 @@
 @endphp
 
 {{-- <input {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => 'rounded shadow-sm bg-gray-100 dark:bg-slate-800 text-slate-800 dark:text-gray-100 pl-2 focus:outline-none focus:ring-4 ring-offset-2 ring-offset-gray-100 dark:ring-offset-slate-800 focus:ring-blue-500 dark:focus:ring-fuchsia-500']) !!}> --}}
-<input {{ $attributes->merge(['type' => $type, 'class' => $classes, 'placeholder' => $placeholder]) }}>
+<input {{ $disabled ? 'disabled' : '' }} {{ $attributes->merge(['type' => $type, 'class' => $classes, 'placeholder' => $placeholder]) }}>

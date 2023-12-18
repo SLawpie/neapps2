@@ -148,8 +148,12 @@ return [
             'rule-name' => 'custom-message',
         ],
         'file' => [
-            'required' => "Żaden plik nie został wybrany.",
-            'mimes' => "Poprawne typy plików to: :values.",
+            'required' => 'Żaden plik nie został wybrany.',
+            'mimes' => 'Poprawne typy plików to: :values.',
+        ],
+        'new-username' => [
+            'required' => 'Błędna nazwa użytkownika. Została przywrócona pierwotna nazwa.',
+            'alpha_num' => 'Nazwa użytkownika może zwierać tylko litery i cyfry.', 
         ],
     ],
 
@@ -165,7 +169,9 @@ return [
     */
 
     'attributes' => [
-        'file' => "plik",
+        'file' => "'plik'",
+        'new-firstname' => "'imię'",
+        'new-lastname' => "'nazwisko'",
     ],
 
 ];

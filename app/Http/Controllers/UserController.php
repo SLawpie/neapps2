@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -89,7 +90,25 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // if (UserController::decryptRequest($id)) {
+        //     $id = UserController::decryptRequest($id)[0];
+        // } else {
+        //     return view('dashboard'); 
+        // }
+        $request->validate([
+            'new-username' => 'required|alpha_num|max:128',
+            'new-firstname' => 'required|max:128',
+            'new-lastname' => 'required|max:128',
+        ]);
+
+        $user = Auth::user();
+        $user->username = $request->get('new-username');
+        $user->firstname = $request->get('new-firstname');
+        $user->lastname = $request->get('new-lastname');
+        $user->save();
+
+        return view('user.show')->with(['success' => "Dane zostały zmienione."]);
+        // return redirect()->back()->with("success", "Dane zostały zmienione.");
     }
 
     /**

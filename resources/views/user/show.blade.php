@@ -5,6 +5,13 @@
         </h2>
     </x-slot>
 
+    {{-- Add leter in  --}}
+    {{-- @if ($success)
+        <div class="alert alert-success text-center col-4 pt-4">
+            <p class="font-weight-bold">{{ $success }}</p>
+        </div>
+    @endif --}}
+
     <div class="pt-8">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100 shadow-sm sm:rounded-lg">

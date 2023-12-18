@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot:header>
         <div class="flex">
-            <div class="h-6 -ms-1">
+            <div class="h-6 -ms-1  text-slate-800 dark:text-gray-100">
                 <a href="{{ route('user.show', Crypt::encryptString(Auth::user()->id)) }}">
                     <x-icons.chevron-double-left class="pe-2"/>
                 </a>
@@ -13,6 +13,8 @@
     </x-slot>
 
     <div class="pt-8">
+    <form method="POST" action="{{ route('user.update', Crypt::encryptString(Auth::user()->id)) }}">
+        @csrf
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100 shadow-sm sm:rounded-lg">
                 <div class="sm:flex items-center px-4 py-6 sm:px-6 border-gray-200">
@@ -23,12 +25,17 @@
                             </div>
                             <div>
                                 <a href="">
-                                    <x-button>
+                                    <x-button type="submit">
                                         Zapisz
                                     </x-button>
                                 </a>
                             </div>
                         </div>
+
+                        <x-auth-validation-errors 
+                            class="pb-4" 
+                            :errors="$errors" 
+                        />
 
                         <div class="flex justify-center w-full">
                             <div class="flex flex-row w-full lg:w-5/6 xl:w-3/4 ps-4 sm:ps-0">
@@ -37,58 +44,59 @@
                                 </div>
                                 <div class="grow">
                                     <div class="grid grid-cols-1 gap-y-1 lg:gap-y-4 lg:grid-cols-2">
+                                            
                                             <div class="font-bold">
                                                 Nazwa
                                             </div>
-                                            {{-- <div class="pb-1 sm:pb-4">
-                                                {{ Auth::user()->username }}
-                                            </div> --}}
                                             <x-input 
-                                                id="username"
+                                                id="new-username"
                                                 type="text" 
-                                                name="username" 
-                                                class="h-10 placeholder:text-slate-800 dark:plsceholder:text-gray-100"
-                                                placeholder="{{ Auth::user()->username }}"
+                                                name="new-username" 
+                                                class="h-10 placeholder:text-slate-800/30 dark:placeholder:text-gray-100/30"
+                                                placeholder="nazwa użytkownika"
+                                                value="{{ Auth::user()->username }}"
                                             />
+                                            <input id="username" name="username" value="{{ Auth::user()->username }}" type="hidden">
+
                                             <div class="font-bold">
                                                 Imię
                                             </div>
-                                            {{-- <div class="pb-1 lg:pb-4">
-                                                {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
-                                            </div> --}}
                                             <x-input 
-                                                id="firstname"
+                                                id="new-firstname"
                                                 type="text" 
-                                                name="firstname" 
-                                                class="h-10 placeholder:text-slate-800 dark:plsceholder:text-gray-100"
-                                                placeholder="{{ Auth::user()->firstname }}"
+                                                name="new-firstname" 
+                                                class="h-10 placeholder:text-slate-800/30 dark:placeholder:text-gray-100/30"
+                                                placeholder="podaj imię"
+                                                value="{{ Auth::user()->firstname }}"
                                             />
+                                            <input id="firstname" name="firstname" value="{{ Auth::user()->firstname }}" type="hidden">
+
                                             <div class="font-bold">
                                                 Nazwisko
                                             </div>
-                                            {{-- <div class="pb-1 lg:pb-4">
-                                                {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
-                                            </div> --}}
                                             <x-input 
-                                                id="lastname"
+                                                id="new-lastname"
                                                 type="text" 
-                                                name="lastname" 
-                                                class="h-10 placeholder:text-slate-800 dark:plsceholder:text-gray-100"
-                                                placeholder="{{ Auth::user()->lastname }}"
+                                                name="new-lastname" 
+                                                class="h-10 placeholder:text-slate-800/30 dark:placeholder:text-gray-100/30"
+                                                placeholder="podaj nazwisko"
+                                                value="{{ Auth::user()->lastname }}"
                                             />
+                                            <input id="lastname" name="lastname" value="{{ Auth::user()->lastname }}" type="hidden">
+
                                             <div class="font-bold">
                                                 Adres e-mail
-                                                </div>
-                                            {{-- <div class="pb-1">
-                                                {{ Auth::user()->email }}
-                                            </div> --}}
-                                            <x-input 
+                                            </div>
+                                            {{-- <x-input
                                                 id="lastname"
                                                 type="text" 
                                                 name="lastname" 
-                                                class="h-10 placeholder:text-slate-800 dark:plsceholder:text-gray-100"
+                                                class="h-10 placeholder:text-slate-800 dark:placeholder:text-gray-100"
                                                 placeholder="{{ Auth::user()->email }}"
-                                            />
+                                            /> --}}
+                                            <div class="">
+                                                {{ Auth::user()->email }}
+                                            </div>
                                     </div>
                                 </div>
                             </div>
@@ -99,6 +107,7 @@
             </div> 
 
         </div>
+    </form>
     </div>
 
 </x-app-layout>
