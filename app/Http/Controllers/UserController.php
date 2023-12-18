@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Contracts\Encryption\DecryptException;
+use Illuminate\Support\Facades\Crypt;
 
 class UserController extends Controller
 {
@@ -52,7 +54,13 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        if (UserController::decryptRequest($id)) {
+            $id = UserController::decryptRequest($id)[0];
+        } else {
+            return view('dashboard'); 
+        }
+
+        return view('user.show');
     }
 
     /**
@@ -63,7 +71,13 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        if (UserController::decryptRequest($id)) {
+            $id = UserController::decryptRequest($id)[0];
+        } else {
+            return view('dashboard'); 
+        }
+
+        return view('user.edit');
     }
 
     /**
@@ -87,5 +101,20 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    //
+    // Decrypt request
+    //
+    public function decryptRequest($request)
+    {
+
+        try {
+            $decrypted = Crypt::decryptString($request);
+        } catch (DecryptException $e) {
+            return false;
+        }
+        
+        return explode(";", $decrypted);
     }
 }

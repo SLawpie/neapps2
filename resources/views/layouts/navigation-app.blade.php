@@ -74,7 +74,7 @@
                             </div>
                         </div>
                         <div class="pt-2">
-                            <x-dropdown-link :href="route('user.index')">
+                            <x-dropdown-link :href="route('user.show', Crypt::encryptString(Auth::user()->id))">
                                 {{ __('app.user.settings') }}
                             </x-dropdown-link>
                             <form method="POST" action="{{ route('logout') }}">
@@ -133,7 +133,7 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('user.index')">
+                <x-responsive-nav-link :href="route('user.show', Crypt::encryptString(Auth::user()->id))">
                     {{ __('app.user.settings') }}
                 </x-responsive-nav-link>
                 <!-- Authentication -->

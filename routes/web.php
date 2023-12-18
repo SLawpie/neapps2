@@ -39,7 +39,8 @@ Route::prefix('medical-report')->name('medical-reports.')->group(function(){
 // })->middleware(['auth']);
 
 Route::prefix('user')->name('user.')->group(function(){
-    Route::get('/', [UserController::class, 'index'])->name('index');
+    Route::get('/{id}', [UserController::class, 'show'])->name('show');
+    Route::get('/edit/{id}', [UserController::class, 'edit'])->name('edit');
 });
 
 // Route::group(['middleware' => ['auth']], function(){

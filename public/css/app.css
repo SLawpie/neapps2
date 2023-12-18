@@ -389,6 +389,8 @@ video {
   margin-right: auto;
 }.-mr-2 {
   margin-right: -0.5rem;
+}.-ms-1 {
+  margin-inline-start: -0.25rem;
 }.mb-4 {
   margin-bottom: 1rem;
 }.ml-3 {
@@ -560,6 +562,8 @@ video {
   gap: 0.5rem;
 }.gap-4 {
   gap: 1rem;
+}.gap-y-1 {
+  row-gap: 0.25rem;
 }.space-x-8 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(2rem * var(--tw-space-x-reverse));
@@ -690,6 +694,8 @@ video {
   padding-bottom: 0.75rem;
 }.pb-4 {
   padding-bottom: 1rem;
+}.pe-2 {
+  padding-inline-end: 0.5rem;
 }.pe-4 {
   padding-inline-end: 1rem;
 }.pe-6 {
@@ -702,6 +708,8 @@ video {
   padding-right: 1rem;
 }.ps-2 {
   padding-inline-start: 0.5rem;
+}.ps-4 {
+  padding-inline-start: 1rem;
 }.ps-8 {
   padding-inline-start: 2rem;
 }.pt-1 {
@@ -902,6 +910,12 @@ video {
 }.file\:tracking-widest::file-selector-button {
   letter-spacing: 0.1em;
 }.file\:text-slate-800::file-selector-button {
+  --tw-text-opacity: 1;
+  color: rgb(30 41 59 / var(--tw-text-opacity));
+}.placeholder\:text-slate-800::-moz-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(30 41 59 / var(--tw-text-opacity));
+}.placeholder\:text-slate-800::placeholder {
   --tw-text-opacity: 1;
   color: rgb(30 41 59 / var(--tw-text-opacity));
 }.before\:absolute::before {
@@ -1241,18 +1255,32 @@ video {
     visibility: visible;
   }.lg\:w-3\/4 {
     width: 75%;
+  }.lg\:w-5\/6 {
+    width: 83.333333%;
+  }.lg\:basis-1\/4 {
+    flex-basis: 25%;
+  }.lg\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }.lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }.lg\:grid-cols-6 {
     grid-template-columns: repeat(6, minmax(0, 1fr));
+  }.lg\:gap-y-4 {
+    row-gap: 1rem;
   }.lg\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
+  }.lg\:pb-4 {
+    padding-bottom: 1rem;
   }.lg\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
   }
 }@media (min-width: 1280px) {.xl\:w-1\/2 {
     width: 50%;
+  }.xl\:w-3\/4 {
+    width: 75%;
+  }.xl\:basis-1\/3 {
+    flex-basis: 33.333333%;
   }
 }

@@ -10,8 +10,17 @@
             <div class="bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100 shadow-sm sm:rounded-lg">
                 <div class="sm:flex items-center px-4 py-6 sm:px-6 border-gray-200">
                     <div class="sm:flex-none w-full">
-                        <div class="text-xl font-bold pb-4">
-                            Informacje o profilu
+                        <div class="flex justify-between">
+                            <div class="text-xl font-bold pb-4">
+                                Informacje o profilu
+                            </div>
+                            <div>
+                                <a href="{{ route('user.edit', Crypt::encryptString(Auth::user()->id)) }}">
+                                    <x-button>
+                                        Edytuj
+                                    </x-button>
+                                </a>
+                            </div>
                         </div>
 
                         <div class="flex justify-center w-full">
