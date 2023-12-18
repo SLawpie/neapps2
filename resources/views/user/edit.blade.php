@@ -19,14 +19,14 @@
             <div class="bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100 shadow-sm sm:rounded-lg">
                 <div class="sm:flex items-center px-4 py-6 sm:px-6 border-gray-200">
                     <div class="sm:flex-none w-full">
-                        <div class="flex justify-between">
+                        <div class="flex justify-between mb-4">
                             <div class="text-xl font-bold pb-4">
                                 Informacje podstawowe
                             </div>
                             <div>
-                                <a href="">
-                                    <x-button type="submit">
-                                        Zapisz
+                                <a href="{{ route('user.change-password-form', Crypt::encryptString(Auth::user()->id)) }}">
+                                    <x-button type="button">
+                                        Zmiana hasła
                                     </x-button>
                                 </a>
                             </div>
@@ -96,6 +96,13 @@
                                             /> --}}
                                             <div class="">
                                                 {{ Auth::user()->email }}
+                                            </div>
+
+                                            <div class="font-bold"></div>
+                                            <div class="flex justify-center mt-2">
+                                                <x-button class="w-full flex justify-center">
+                                                    Zapisz
+                                                </x-button>
                                             </div>
                                     </div>
                                 </div>

@@ -12,6 +12,9 @@
         case 'text':
             $additionalClasses=' pl-2';
             break;
+        case 'password':
+            $additionalClasses=' pl-2';
+            break;
         default:
             $additionalClasses='';
             break;

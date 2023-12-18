@@ -94,7 +94,7 @@ return [
     'min' => [
         'numeric' => 'The :attribute must be at least :min.',
         'file' => 'The :attribute must be at least :min kilobytes.',
-        'string' => 'The :attribute must be at least :min characters.',
+        'string' => 'Wybrane :attribute must mieć conajmniej :min znaków.',
         'array' => 'The :attribute must have at least :min items.',
     ],
     'multiple_of' => 'The :attribute must be a multiple of :value.',
@@ -155,6 +155,9 @@ return [
             'required' => 'Błędna nazwa użytkownika. Została przywrócona pierwotna nazwa.',
             'alpha_num' => 'Nazwa użytkownika może zwierać tylko litery i cyfry.', 
         ],
+        'confirm-newpassword' => [
+            'same' => "Potwierdzenie hasła nie jest zgodne."
+        ]
     ],
 
     /*
@@ -172,6 +175,7 @@ return [
         'file' => "'plik'",
         'new-firstname' => "'imię'",
         'new-lastname' => "'nazwisko'",
+        'newpassword' => 'hasło'
     ],
 
 ];

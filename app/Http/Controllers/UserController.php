@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -90,11 +91,6 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // if (UserController::decryptRequest($id)) {
-        //     $id = UserController::decryptRequest($id)[0];
-        // } else {
-        //     return view('dashboard'); 
-        // }
         $request->validate([
             'new-username' => 'required|alpha_num|max:128',
             'new-firstname' => 'required|max:128',
@@ -107,9 +103,42 @@ class UserController extends Controller
         $user->lastname = $request->get('new-lastname');
         $user->save();
 
-        return view('user.show')->with(['success' => "Dane zostały zmienione."]);
-        // return redirect()->back()->with("success", "Dane zostały zmienione.");
+        // return view('user.edit', ['id' => $id])->with(['success' => "Dane zostały zmienione."]);
+        return redirect()->route('user.show', ['id' => $id])->with(['success' => "Dane zostały zmienione."]);
     }
+
+    public function changePasswordForm($id)
+    {
+
+        return view('user.change-password');
+    }
+
+    public function changePassword(Request $request, $id)
+    {
+        if (!(Hash::check($request->get('password'), Auth::user()->password))) {
+            // The passwords no matches
+            return view('user.change-password')->with(['errorMessage' => "Niepoprawne obecne hasło."]);
+        }
+
+        if(strcmp($request->get('password'), $request->get('newpassword')) == 0) {
+            //Current password and new password are same
+            return view('user.change-password')->with(['errorMessage' => "Nowe hasło nie może być takie samo jak aktualne." ]);
+        }
+
+        $validatedData = $request->validate([
+            'password' => 'required',
+            'newpassword' => 'required|min:6|max:30',
+            'confirm-newpassword' => 'same:newpassword'
+        ]);
+
+        //Change Password
+        $user = Auth::user();
+        $user->password = bcrypt($request->get('newpassword'));
+        $user->save();
+
+        return redirect()->route('user.show',['id' => $id])->with(['success' => "Hasło zostało zmienione."]);
+    }
+
 
     /**
      * Remove the specified resource from storage.
