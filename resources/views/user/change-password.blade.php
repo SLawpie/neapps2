@@ -16,6 +16,26 @@
         <form method="POST" action="{{ route('user.change-password', Crypt::encryptString(Auth::user()->id)) }}">
             @csrf
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
+                @if (($errors->any()) || ((session('messagetype'))))
+                <div id="" class="flex justify-center w-full">
+                    <div class="flex w-full sm:w-3/4 pb-6">
+                        <x-flash-box type="alert">
+                            @if (session('messagetype'))
+                                <p class="font-bold">{{ session('message') }}</p>
+                            @endif
+                            @if ($errors->any())
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li class="font-bold">{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </x-flash-box>
+                    </div> 
+                </div>
+                @endif
+
                 <div class="bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100 shadow-sm sm:rounded-lg">
                     <div class="sm:flex items-center px-4 py-6 sm:px-6 border-gray-200">
                         <div class="sm:flex-none w-full">
@@ -28,20 +48,6 @@
                             <div class="flex justify-center w-full">
                                 <div class="flex flex-row w-full lg:w-3/4 xl:w-1/2 ps-4 sm:ps-0">
                                     <div class="w-full grid grid-cols-1 gap-y-1 lg:gap-y-4 lg:grid-cols-2">
-
-                                        
-                                        <div class="lg:col-span-2 text-md font-bold text-red-600 dark:text-red-400">
-                                            <div class="w-full flex justify-center">
-                                                @if(!empty($errorMessage))
-                                                    {{ $errorMessage }}
-                                                @endif
-                                                <x-auth-validation-errors 
-                                                    class="" 
-                                                    :errors="$errors" 
-                                                />
-                                            </div>
-                                        </div>
-                                        
 
                                         <div class="font-bold">
                                             Obecne hasło

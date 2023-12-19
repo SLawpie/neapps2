@@ -173,8 +173,8 @@ return [
 
     'attributes' => [
         'file' => "'plik'",
-        'new-firstname' => "'imię'",
-        'new-lastname' => "'nazwisko'",
+        'new-firstname' => "'Imię'",
+        'new-lastname' => "'Nazwisko'",
         'newpassword' => 'hasło'
     ],
 

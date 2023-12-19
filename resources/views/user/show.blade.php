@@ -5,17 +5,20 @@
         </h2>
     </x-slot>
 
-    {{-- Add leter in  --}}
-    {{-- @if ($success)
-        <div class="alert alert-success text-center col-4 pt-4">
-            <p class="font-weight-bold">{{ $success }}</p>
-        </div>
-    @endif --}}
-
     <div class="pt-8">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            @if (session('messagetype'))
+                <div id="hideMe" class="flex justify-center w-full">
+                    <div class="flex w-full sm:w-3/4 pb-6">
+                        <x-flash-box type="{{ session('messagetype') }}">
+                            <p class="font-bold">{{ session('message') }}</p>
+                        </x-flash-box>
+                    </div> 
+                </div>
+            @endif
+
             <div class="bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100 shadow-sm sm:rounded-lg">
-                <div class="sm:flex items-center px-4 py-6 sm:px-6 border-gray-200">
+                <div class="sm:flex items-center px-4 py-6 sm:px-6 border-gray-200"> 
                     <div class="sm:flex-none w-full">
                         <div class="flex justify-between">
                             <div class="text-xl font-bold pb-4">

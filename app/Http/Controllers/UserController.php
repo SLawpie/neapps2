@@ -103,8 +103,12 @@ class UserController extends Controller
         $user->lastname = $request->get('new-lastname');
         $user->save();
 
-        // return view('user.edit', ['id' => $id])->with(['success' => "Dane zostały zmienione."]);
-        return redirect()->route('user.show', ['id' => $id])->with(['success' => "Dane zostały zmienione."]);
+        return redirect()
+            ->route('user.show', ['id' => $id])
+            ->with([
+                'messagetype' => 'success',
+                'message' => 'Dane zostały zmienione.'
+            ]);
     }
 
     public function changePasswordForm($id)
@@ -117,12 +121,20 @@ class UserController extends Controller
     {
         if (!(Hash::check($request->get('password'), Auth::user()->password))) {
             // The passwords no matches
-            return view('user.change-password')->with(['errorMessage' => "Niepoprawne obecne hasło."]);
+            return back()
+                ->with([
+                    'messagetype' => 'alert',
+                    'message' => 'Niepoprawne obecne hasło.'
+                ]);
         }
 
         if(strcmp($request->get('password'), $request->get('newpassword')) == 0) {
             //Current password and new password are same
-            return view('user.change-password')->with(['errorMessage' => "Nowe hasło nie może być takie samo jak aktualne." ]);
+            return back()
+                ->with([
+                    'messagetype' => 'alert',
+                    'message' => 'Nowe hasło nie może być takie samo jak obecne.'
+                ]);
         }
 
         $validatedData = $request->validate([
@@ -136,7 +148,12 @@ class UserController extends Controller
         $user->password = bcrypt($request->get('newpassword'));
         $user->save();
 
-        return redirect()->route('user.show',['id' => $id])->with(['success' => "Hasło zostało zmienione."]);
+        return redirect()
+            ->route('user.show', ['id' => $id])
+            ->with([
+                'messagetype' => 'success',
+                'message' => 'Hasło zostało zmienione..'
+            ]);
     }
 
 

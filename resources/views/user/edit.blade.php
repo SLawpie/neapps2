@@ -16,6 +16,22 @@
     <form method="POST" action="{{ route('user.update', Crypt::encryptString(Auth::user()->id)) }}">
         @csrf
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
+            @if ($errors->any())
+                <div id="" class="flex justify-center w-full">
+                    <div class="flex w-full sm:w-3/4 pb-6">
+                        <x-flash-box type="alert">
+                            {{-- <p class="font-bold">{{ $errors[0] }}</p> --}}
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li class="font-bold">{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </x-flash-box>
+                    </div> 
+                </div>
+            @endif
+
             <div class="bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100 shadow-sm sm:rounded-lg">
                 <div class="sm:flex items-center px-4 py-6 sm:px-6 border-gray-200">
                     <div class="sm:flex-none w-full">
@@ -31,11 +47,6 @@
                                 </a>
                             </div>
                         </div>
-
-                        <x-auth-validation-errors 
-                            class="pb-4" 
-                            :errors="$errors" 
-                        />
 
                         <div class="flex justify-center w-full">
                             <div class="flex flex-row w-full lg:w-5/6 xl:w-3/4 ps-4 sm:ps-0">
@@ -55,6 +66,7 @@
                                                 class="h-10 placeholder:text-slate-800/30 dark:placeholder:text-gray-100/30"
                                                 placeholder="nazwa użytkownika"
                                                 value="{{ Auth::user()->username }}"
+
                                             />
                                             <input id="username" name="username" value="{{ Auth::user()->username }}" type="hidden">
 
