@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         @include('layouts.favicons')
-        <meta name="theme-color" content="#f3f4f6">
+        <meta name="theme-color" content="#f1f5f9">
 
         <title>{{ config('app.name', 'NEApps') }}</title>
 
@@ -21,13 +21,13 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
 
     </head>
-    <body class="antialiased bg-gray-100 dark:bg-slate-800">
+    <body class="antialiased bg-light-bg-primary dark:bg-dark-bg-primary">
         <div class="flex flex-col h-screen">
             <!-- Page Heading -->
             <div class="w-full">
                 @include('layouts.navigation-app')
 
-                <header class="bg-white dark:bg-slate-700 drop-shadow-md">
+                <header class="bg-light-bg-secondary dark:bg-dark-bg-secondary drop-shadow-md">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>

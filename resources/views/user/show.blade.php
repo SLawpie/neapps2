@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot:header>
-        <h2 class="bg-white dark:bg-slate-700 font-semibold text-xl text-slate-800 dark:text-gray-100 leading-tight">
+        <h2 class="bg-light-bg-secondary dark:bg-dark-bg-secondary font-semibold text-xl text-light-text-primary dark:text-dark-text-primary leading-tight">
             Zarządzanie kontem
         </h2>
     </x-slot>
@@ -17,8 +17,8 @@
                 </div>
             @endif
 
-            <div class="bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100 shadow-sm sm:rounded-lg">
-                <div class="sm:flex items-center px-4 py-6 sm:px-6 border-gray-200"> 
+            <div class="bg-light-bg-secondary dark:bg-dark-bg-secondary text-light-text-primary dark:text-dark-text-primary shadow-sm sm:rounded-lg">
+                <div class="sm:flex items-center px-4 py-6 sm:px-6 border-dark-bg"> 
                     <div class="sm:flex-none w-full">
                         <div class="flex justify-between">
                             <div class="text-xl font-bold pb-4">
@@ -36,7 +36,7 @@
                         <div class="flex justify-center w-full">
                             <div class="flex flex-row w-full sm:w-3/4 ps-8 sm:ps-0">
                                 <div class="h-28 w-28 sm:basis-1/3">
-                                    <x-icons.user class="fill-gray-200 dark:fill-gray-500"/>
+                                    <x-icons.user class="fill-light-bg-primary dark:fill-dark-bg-primary"/>
                                 </div>
                                 <div class="grow">
                                     <div class="grid grid-cols-1 sm:grid-cols-2">
@@ -67,8 +67,8 @@
                 </div>
             </div> 
             <div class="py-2"></div>
-            <div class="bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100 shadow-sm sm:rounded-lg">
-                <div class="sm:flex items-center px-4 py-6 sm:px-6 border-gray-200">
+            <div class="bg-light-bg-secondary dark:bg-dark-bg-secondary text-light-text-primary dark:text-dark-text-primary shadow-sm sm:rounded-lg">
+                <div class="sm:flex items-center px-4 py-6 sm:px-6 border-dark-bg">
                     <div class="sm:flex-none w-full">
                         <div class="text-xl font-bold pb-4">
                             Ustawienia regionalne
@@ -90,8 +90,8 @@
                 </div>
             </div>
             <div class="py-2"></div>
-            <div class="bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100 shadow-sm sm:rounded-lg">
-                <div class="sm:flex items-center px-4 py-6 sm:px-6 border-gray-200">
+            <div class="bg-light-bg-secondary dark:bg-dark-bg-secondary text-light-text-primary dark:text-dark-text-primary shadow-sm sm:rounded-lg">
+                <div class="sm:flex items-center px-4 py-6 sm:px-6 border-dark-bg">
                     <div class="sm:flex-none w-full">
                         <div class="text-xl font-bold pb-4">
                             Wygląd ogólny
@@ -101,8 +101,9 @@
                                 <div class="py-2 grid grid-cols-1 md:grid-cols-3 gap-1 w-full">
                                     <div class="pt-2 grid gap-2 justify-items-center">
                                         <div class="h-28 cursor-pointer" onclick="switchTheme('light')">
-                                            <svg id="lightTheme" class="w-full h-full fill-gray-100 stroke-gray-400 hover:stroke-[0.75px]"
+                                            <svg id="lightTheme" class="w-full h-full stroke-light-accent hover:stroke-light-text stroke-[0.75px]"
                                                 viewBox="0 0 24 16"
+                                                fill="#e2e8f0"
                                                 stroke-width="0.25">
                                                 <rect width="24" height="14" rx="1" ry="1" y="1"/>
                                             </svg>
@@ -113,8 +114,9 @@
                                     </div>
                                     <div class="pt-2 grid gap-2 justify-items-center">
                                         <div class="h-28 cursor-pointer" onclick="switchTheme('dark')">
-                                            <svg id="darkTheme" class="w-full h-full fill-slate-800 stroke-gray-400 hover:stroke-[0.75px]"
+                                            <svg id="darkTheme" class="w-full h-full dark:stroke-dark-accent hover:stroke-light-text hover:stroke-[0.75px]"
                                                 viewBox="0 0 24 16"
+                                                fill="#1e293b"
                                                 stroke-width="0.25">
                                                 <rect width="24" height="14" rx="1" ry="1" y="1"/>
                                             </svg>
@@ -125,13 +127,14 @@
                                     </div>
                                     <div class="pt-2 grid gap-2 justify-items-center">
                                         <div class="h-28 cursor-pointer" onclick="switchTheme('system')">
-                                            <svg id="systemTheme" class="w-full h-full stroke-gray-400 fill-slate-800 hover:stroke-[0.75px]"
+                                            <svg id="systemTheme" class="w-full h-full stroke-loght-bg hover:stroke-light-text hover:stroke-[0.75px]"
                                                 viewBox="0 0 24 16"
                                                 stroke-width="0.25">
                                                 <path
+                                                    fill="#1e293b"
                                                     d="M0 2 L0 14 Q0 15 1 15 L23 15 Q24 15 24 14 L24 2 Q24 1 23 1 L1 1 Q0 1 0 2 Z"/>
                                                 <path
-                                                    fill="#f3f4f6"
+                                                    fill="#e2e8f0"
                                                     fill-rule="evenodd"
                                                     clip-rule="evenodd"
                                                     d="M0 2 Q0 1 1 1 L23 1 Q24 1 24 2 L24 14" />
@@ -148,8 +151,8 @@
                 </div>
             </div>
             <div class="py-2"></div>
-            <div class="bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100 shadow-sm sm:rounded-lg">
-                <div class="sm:flex items-center px-4 py-6 sm:px-6 border-gray-200">
+            <div class="bg-light-bg-secondary dark:bg-dark-bg-secondary text-light-text-primary dark:text-dark-text-primary shadow-sm sm:rounded-lg">
+                <div class="sm:flex items-center px-4 py-6 sm:px-6 border-dark-bg">
                     <div class="sm:flex-none w-full">
                         <div class="text-xl font-bold pb-4">
                             Ostatnia aktywność

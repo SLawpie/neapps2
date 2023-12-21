@@ -7,7 +7,7 @@
 <div>
     <input type="checkbox" onclick="darkLight()" id="{{ $toggle_nr }}" class="toggle-check" checked>
       <label for="{{ $toggle_nr }}" class="toggle-label cursor-pointer" aria-labelledby="toggle mode">
-          <div class="toggle-container">
+          <div class="toggle-container bg-light-accent dark:bg-dark-accent">
             <div class="toggle-light-icon icon">
               <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"stroke-linejoin="round">
                 <circle cx="12" cy="12" r="5"></circle>

@@ -9,11 +9,12 @@ hover {
   transition: transform .5s
 }
 
+
 .toggle-container {
   cursor: pointer;
   width: 60px;
   height: 30px;
-  background-color: #d946ef; /* fuchsia-500 */
+  /* background-color: #d946ef; fuchsia-500 */
   border-radius: 15px;
   display: flex;
   justify-content: space-between;
@@ -64,7 +65,7 @@ hover {
 }
 .toggle-check:checked ~ .toggle-label .toggle-container {
   /* background: #facc15 /* yellow-400 */
-  background: #3b82f6; /* blue-500 */
+  /* background: #3b82f6; blue-500 */
   /* background: #ccc */
 }
 .toggle-check:checked ~ .toggle-label .toggle-container .toggle-circle {
@@ -112,7 +113,7 @@ hover {
   z-index: 1;
   top: 120%;
   left: 50%;
-  margin-left: -90px;
+  margin-left: -120px;
 }
 
 .tooltip:hover .tooltip-text {

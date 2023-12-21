@@ -1,24 +1,45 @@
-<x-guest-layout>
+<x-guest-layout>    
     <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo 
-                    class="w-32 h-32 fill-current text-gray-500 dark:text-gray-200 transition ease-in-out delay-150 hover:scale-110 duration-300 mb-4" 
-                />
-            </a>
+        <x-slot:logo>
+            <div class="flex flex-col items-center">
+                <a href="/">
+                    <x-application-logo 
+                        class="w-32 h-32 fill-current text-light-text dark:text-dark-text transition ease-in-out delay-150 hover:scale-110 duration-300 mb-4" 
+                    />
+                </a>
+            
+                @if (($errors->any()) || ((session('status'))))
+                <div id="" class="flex justify-center w-full">
+                    <div class="flex w-full pb-6">
+                        <x-flash-box type="alert">
+                            @if (session('status'))
+                                <p class="font-bold">{{ session('status') }}</p>
+                            @endif
+                            @if ($errors->any())
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li class="font-bold">{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </x-flash-box>
+                    </div> 
+                </div>
+                @endif
+            </div>
         </x-slot>
 
         <!-- Session Status -->
-        <x-auth-session-status 
+        {{-- <x-auth-session-status 
             class="mb-4" 
             :status="session('status')" 
-        />
+        /> --}}
 
         <!-- Validation Errors -->
-        <x-auth-validation-errors 
+        {{-- <x-auth-validation-errors 
             class="mb-4" 
             :errors="$errors" 
-        />
+        /> --}}
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
@@ -32,7 +53,7 @@
 
                 <x-input 
                     id="username" 
-                    class="block mt-1 w-full" 
+                    class="block mt-1 w-full bg-light-bg-secondary" 
                     type="text" 
                     name="username" 
                     :value="old('username')" 
@@ -48,7 +69,7 @@
                     :value="__('auth.password.password')" 
                 />
 
-                <x-input id="password" class="block mt-1 w-full"
+                <x-input id="password" class="block mt-1 w-full first-line bg-light-bg-secondary"
                     type="password"
                     name="password"
                     {{-- required autocomplete="current-password" --}}
@@ -64,10 +85,10 @@
                         data-ripple-dark="true">
                         <input
                             type="checkbox"
-                            class="before:content[''] peer relative h-5 w-5 bg-gray-100 dark:bg-slate-800 cursor-pointer appearance-none rounded-md border border-gray-100 dark:border-slate-800 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-7 before:w-7 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-lg before:bg-blue-500 dark:before:bg-fuchsia-500 before:opacity-0 before:transition-opacity dark:checked:border-fuchsia-500 checked:bg-blue-500 dark:checked:bg-fuchsia-500 checked:before:bg-blue-500 dark:checked:before:bg-fuchsia-500 hover:before:opacity-30 focus:outline-none focus-visible:ring focus-visible:ring-blue-500 dark:focus-visible:ring-fuchsia-500"
+                            class="before:content[''] peer relative h-5 w-5 bg-light-bg-secondary dark:bg-dark-bg-primary cursor-pointer appearance-none rounded-md border border-light-bg-primary dark:border-dark-bg-primary transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-7 before:w-7 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-lg before:bg-light-accent dark:before:bg-dark-accent before:opacity-0 before:transition-opacity dark:checked:border-dark-accent checked:bg-light-accent dark:checked:bg-dark-accent checked:before:bg-light-accent dark:checked:before:bg-dark-accent hover:before:opacity-30 focus:outline-none focus-visible:ring focus-visible:ring-light-accent dark:focus-visible:ring-dark-accent"
                             id="remember_me"/>
                         <div 
-                            class="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
+                            class="absolute text-light-bg-primary transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 class="h-3.5 w-3.5"
@@ -84,7 +105,7 @@
                         </div>
                     </label>
                     <label
-                        class="pl-2 font-medium text-sm text-slate-800 dark:text-gray-100 cursor-pointer select-none"
+                        class="pl-2 font-medium text-sm text-light-text-primary dark:text-dark-text-primary cursor-pointer select-none"
                         for="remember_me">
                         {{ __('auth.remember') }} 
                     </label>
@@ -92,12 +113,12 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
+                {{-- @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" 
                        href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
-                @endif
+                @endif --}}
 
                 <x-button class="ml-3">
                     {{ __('auth.login.button') }}

@@ -2,15 +2,15 @@
     $version = implode('.', Config::get('app.version'));
 @endphp
 
-<nav x-data="{ open: false }" class="bg-white dark:bg-slate-700 border-b border-blue-500 dark:border-fuchsia-500 text-slate-800 dark:text-gray-100">
+<nav x-data="{ open: false }" class="bg-light-bg-secondary dark:bg-dark-bg-secondary border-b border-light-accent dark:border-dark-accent text-light-text-primary dark:text-dark-text-primary">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
+        <div class="flex h-16">
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-10 w-auto fill-current text-gray-500 dark:text-gray-200 transition ease-in-out delay-150 hover:scale-110 duration-300" />
+                        <x-application-logo class="block h-10 w-auto fill-current text-light-text dark:text-dark-text transition ease-in-out delay-150 hover:scale-110 duration-300" />
                     </a>
                 </div>
 
@@ -19,41 +19,73 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('app.home') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('medical-reports.index')">
+                    <x-nav-link :href="route('medical-reports.index')" :active="request()->routeIs('medical-reports.*')">
                         {{ __('medical-reports.name') }}
                     </x-nav-link>
                 </div>
             </div>
 
-            <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
-                <div id="dark-icon" class="hidden tooltip flex-col">
+            <div class="grow"></div>
+
+             <!-- Theme selector -->
+            <div class="flex w-10 sm:w-10 items-center">
+                <div id="dark-icon" class="p-2 sm:p-0 rounded-md tooltip sm:flex-col dark:hover:bg-dark-bg-primary
+                sm:dark:hover:bg-dark-bg-secondary">
                     <button 
-                        class=" h-6 text-slate-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out stroke-gray-400 hover:stroke-[0.75px]" 
+                        class="h-6 dark:text-dark-text-primary sm:dark:text-dark-text-secondary sm:dark:hover:text-dark-text-primary focus:outline-none transition duration-150 ease-in-out" 
+                        onclick="switchTheme('system')">
+                        <x-icons.moon class="" />
+                    </button>
+                    <div class="hidden sm:block tooltip-text text-xs bg-dark-bg-primary text-dark-text-primary">Zmień wyglad na systemowy</div>
+                </div>
+                <div id="light-icon" class="p-2 sm:p-0 rounded-md hidden tooltip sm:flex-col hover:bg-light-bg-primary sm:hover:bg-light-bg-secondary">
+                    <button 
+                        class="h-7 text-light-text-primary sm:text-light-text-secondary sm:hover:text-light-text-primary focus:outline-none transition duration-150 ease-in-out" 
+                        onclick="switchTheme('dark')">
+                            <x-icons.sun class="" />
+                    </button>
+                    <span class="hidden sm:block tooltip-text text-xs bg-light-bg-primary text-light-text-primary">Zmień wyglad na ciemny</span>
+                </div>
+                <div id="system-icon" class="p-2 sm:p-0 rounded-md hidden tooltip sm:flex-col hover:bg-light-bg-primary sm:hover:bg-light-bg-secondary dark:hover:bg-dark-bg-primary
+                sm:dark:hover:bg-dark-bg-secondary">
+                    <button 
+                        class="h-7 text-xs text-light-text-primary dark:text-dark-text-primary sm:text-light-text-secondary sm:dark:text-dark-text-secondary sm:hover:text-light-text-primary sm:dark:hover:text-dark-text-primary focus:outline-none transition duration-150 ease-in-out" 
+                        onclick="switchTheme('light')">
+                            <x-icons.system-theme class="" />
+                    </button>
+                    <div class="hidden sm:block tooltip-text text-xs bg-light-bg-primary text-light-text-primary dark:bg-dark-bg-primary dark:text-dark-text-primary">Zmień wyglad na jasny</div>
+                </div>
+            </div>
+
+            <!-- Settings Dropdown -->
+            <div class="hidden sm:flex sm:items-center">
+                {{-- <div id="dark-icon" class="hidden tooltip flex-col">
+                    <button 
+                        class="h-6 dark:text-dark-text-secondary dark:hover:text-dark-text-primary focus:outline-none transition duration-150 ease-in-out" 
                         onclick="switchTheme('system')">
                         <x-icons.moon class="pe-4" />
                     </button>
-                    <div class="tooltip-text text-xs bg-slate-800 text-gray-100">Zmień wyglad na systemowy</div>
-                </div>
-                <div id="light-icon" class="tooltip flex flex-col">
+                    <div class="tooltip-text text-xs bg-dark-bg-primary text-dark-text-primary">Zmień wyglad na systemowy</div>
+                </div> --}}
+                {{-- <div id="light-icon" class="tooltip flex flex-col">
                     <button 
-                        class="h-7 text-slate-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out stroke-blue-500 dark:stroke-fuchsia-400 stroke-[0.75px]" 
+                        class="h-7 text-light-text-secondary hover:text-light-text-primary focus:outline-none transition duration-150 ease-in-out" 
                         onclick="switchTheme('dark')">
                             <x-icons.sun class="pe-4" />
                     </button>
-                    <span class="tooltip-text text-xs bg-gray-200 text-slate-800">Zmień wyglad na ciemny</span>
+                    <span class="tooltip-text text-xs bg-light-bg-primary text-light-text-primary">Zmień wyglad na ciemny</span>
                 </div>
                 <div id="system-icon" class="hidden tooltip flex-col">
                     <button 
-                        class="h-7 text-xs text-slate-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out stroke-gray-400 hover:stroke-[0.75px]" 
+                        class="h-7 text-xs text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text-primary dark:hover:text-dark-text-primary focus:outline-none transition duration-150 ease-in-out" 
                         onclick="switchTheme('light')">
                             <x-icons.system-theme class="pe-4" />
                     </button>
-                    <div class="tooltip-text text-xs bg-gray-200 dark:bg-slate-800 text-slate-800 dark:text-gray-100">Zmień wyglad na jasny</div>
-                </div>
+                    <div class="tooltip-text text-xs bg-light-bg-primary text-light-text-primary dark:bg-dark-bg-primary dark:text-dark-text-primary">Zmień wyglad na jasny</div>
+                </div> --}}
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="flex items-center text-sm font-medium text-slate-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-100 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                        <button class="flex items-center text-sm font-medium text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text-primary dark:hover:text-dark-text-primary focus:outline-none transition duration-150 ease-in-out">
                             <div class="h-7">
                                 <x-icons.user-circle class=""/>
                             </div>
@@ -62,14 +94,14 @@
 
                     <x-slot name="content">
                         <!-- Authentication -->
-                        <div class="pt-4 pb-2 border-b border-gray-200 dark:border-gray-400">
-                            <div class="flex justify-center font-medium text-base text-slate-800 dark:text-gray-100">
+                        <div class="pt-4 pb-2 border-b border-light-text-secondary dark:border-dark-text-secondary">
+                            <div class="flex justify-center font-medium text-base text-light-text-primary dark:text-dark-text-primary">
                                 {{ Auth::user()->firstname }}
                             </div>
-                            <div class="flex justify-center font-medium text-sm text-slate-500 dark:text-gray-400">
+                            <div class="flex justify-center font-medium text-sm text-light-text-secondary dark:text-dark-text-secondary">
                                 {{ Auth::user()->email }}
                             </div>
-                            <div class="flex justify-end px-2 pt-4 text-xs text-gray-400 dark:text-gray-500">
+                            <div class="flex justify-end px-2 pt-4 text-xs text-dark-text-secondary dark:text-light-text-secondary">
                                 {{ $version }}
                             </div>
                         </div>
@@ -94,7 +126,7 @@
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">
                 <button @click="open = ! open" 
-                    class="inline-flex items-center justify-center p-2 rounded-md text-slate-800 dark:text-gray-100 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-slate-800 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
+                    class="inline-flex items-center justify-center p-2 rounded-md text-light-text-primary dark:text-dark-text-primary hover:bg-light-bg-primary dark:hover:bg-dark-bg-primary focus:outline-none transition duration-150 ease-in-out"
                     onclick="hamClick()">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -117,19 +149,19 @@
         </div>
 
         <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-blue-300 dark:border-fuchsia-500">
+        <div class="pt-4 pb-1 border-t border-light-accent dark:border-dark-accent">
             <div class="px-4 flex justify-between items-center">
                 <div>
-                    <div class="font-medium text-base text-slate-800 dark:text-gray-100">
+                    <div class="font-medium text-base text-light-text-primary dark:text-dark-text-primary">
                         {{ Auth::user()->firstname }}
                     </div>
-                    <div class="font-medium text-sm text-slate-500 dark:text-gray-400">
+                    <div class="font-medium text-sm text-light-text-secondary dark:text-dark-text-secondary">
                         {{ Auth::user()->email }}
                     </div>
                 </div>
-                <div>
+                {{-- <div>
                    <x-toggle-dark-light />
-                </div>
+                </div> --}}
             </div>
 
             <div class="mt-3 space-y-1">
@@ -149,7 +181,7 @@
             </div>
 
             <div class="px-4 flex justify-end items-center">
-                <div class="text-xs text-slate-500 dark:text-gray-400">
+                <div class="text-xs text-light-text-secondary dark:text-dark-text-secondary">
                     {{ $version }}
                 </div>
 

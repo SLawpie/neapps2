@@ -1,27 +1,33 @@
 /** @type {import('tailwindcss').Config} */
 
-const defaultTheme = require('tailwindcss/defaultTheme');
+// const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-    darkMode: 'class',
-
     content: [
       "./resources/**/*.blade.php",
       "./resources/**/*.js",
       "./resources/**/*.vue",
     ],
 
+    darkMode: 'class',
     theme: {
         extend: {
-            fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
-            },
+            // colors: {
+            //     'light-accent': '#3b82f6',
+            //     'dark-accrnt': '#d946ef',
+            // },
+            // fontFamily: {
+            //     sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+            // },
         },
     },
 
-    variants: {
-        extend: {},
-    },
+    // variants: {
+    //     extend: {},
+    // },
 
-    plugins: [require('@tailwindcss/forms')],
+    plugins: {
+        // tailwindcss: {},
+        // autoprefixer: {},
+    },
 };

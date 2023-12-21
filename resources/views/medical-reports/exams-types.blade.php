@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="bg-white dark:bg-slate-700 font-semibold text-xl text-slate-800 dark:text-gray-100 leading-tight">
+        <h2 class="bg-light-bg-secondary dark:bg-dark-bg-secondary font-semibold text-xl text-light-text-primary dark:text-dark-text-primary leading-tight">
             <div class="flex">
                 <a href="{{ route('medical-reports.index') }}">
                     {{ __('medical-reports.name') }}
@@ -11,8 +11,8 @@
 
     <div class="pt-8">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 order-b border-gray-200">
+            <div class="bg-light-bg-secondary dark:bg-dark-bg-secondary text-light-text-primary dark:text-dark-text-primary overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 order-b border-dark-bg">
                     <div class="text-xl font-bold">
                         {{ $sheetName }}
                     </div>
@@ -37,13 +37,13 @@
                     
                         <x-app-card active :href="route('medical-reports.show-report', Crypt::encryptString($string))">
                             <x-slot name="image">
-                                <x-icons.exam-file class="stroke-0 fill-gray-200 dark:fill-gray-500"/>
+                                <x-icons.exam-file class="stroke-0 fill-light-bg-primary dark:fill-dark-bg-primary"/>
                             </x-slot>
                             <div id="please-wait-text-{{ $i }}" class="text-sm sm:text-lg">
                                 {{ $examType }}
                             </div>
                             <div id="please-wait-{{ $i }}" class="hidden">
-                                <x-icons.wait class="text-slate-800 dark:text-white"/>
+                                <x-icons.wait class="text-light-text-primary dark:text-dark-text-primary"/>
                             </div>
                         </x-app-card>
                     </div>
@@ -55,8 +55,8 @@
 
     <div class="">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-slate-700 text-slate-400 dark:text-gray-500 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="flex justify-end py-2 px-6 text-sm order-b border-gray-200">
+            <div class="bg-light-bg-secondary dark:bg-dark-bg-secondary text-light-text-secondary dark:text-dark-text-secondary overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="flex justify-end py-2 px-6 text-sm opacity-50">
                     plik: {{ $file }}
                 </div>
             </div>

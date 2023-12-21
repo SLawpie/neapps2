@@ -94,7 +94,7 @@ function switchTheme(theme) {
             $('#dark-icon').toggleClass('hidden', true).toggleClass('flex', false);
             $('#light-icon').toggleClass('hidden', false).toggleClass('flex', true);
             $('#system-icon').toggleClass('hidden', true).toggleClass('flex', false);
-            document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f3f4f6')
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f1f5f9')
             break;
         default:
             // if (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -117,7 +117,7 @@ function switchTheme(theme) {
 //     } else {
 //         $('#main').toggleClass('dark', false);
 //         localStorage.theme = "light";
-//         document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f3f4f6')
+//         document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f1f5f9')
 //     }
 //     themeSelector();
 // }
@@ -125,7 +125,7 @@ function darkLight() {
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         $('#main').toggleClass('dark', false);
         localStorage.theme = "light";
-        document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f3f4f6')
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f1f5f9')
     } else {
         $('#main').toggleClass('dark', true);
         localStorage.theme = "dark";
@@ -154,13 +154,13 @@ function darkLight() {
 
 //     $('#dark-icon').toggleClass('hidden', true);
 //     $('#light-icon').toggleClass('hidden', false);
-//     document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f3f4f6')
+//     document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f1f5f9')
 // }
 
 
 function themeSelector() {
-    let activeThemeClasses = "stroke-blue-500 dark:stroke-fuchsia-400 stroke-[0.75px]";
-    let themeClases = "stroke-gray-400 hover:stroke-[0.75px]";
+    let activeThemeClasses = "stroke-light-accent dark:stroke-dark-accent stroke-[0.75px]";
+    let themeClases = "hover:stroke-light-text hover:stroke-[0.75px]";
     theme = localStorage.theme;
     switch(theme) {
         case 'dark':

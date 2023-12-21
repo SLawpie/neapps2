@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="bg-white dark:bg-slate-700 font-semibold text-xl text-slate-800 dark:text-gray-100 leading-tight">
+        <h2 class="bg-light-bg-secondary dark:bg-dark-bg-secondary font-semibold text-xl text-light-text-primary dark:text-dark-text-primary leading-tight">
             <a href="{{ route('medical-reports.index') }}">
                 {{ __('medical-reports.name') }}
             </a>
@@ -9,8 +9,8 @@
 
     <div class="pt-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="sm:flex items-center p-6 order-b border-gray-200">
+            <div class="bg-light-bg-secondary dark:bg-dark-bg-secondary text-light-text-primary dark:text-dark-text-primary overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="sm:flex items-center p-6 order-b border-dark-bg">
                     <div class="sm:flex-none">
                         <div class="text-xl font-bold">
                             {{ $sheetName }}
@@ -51,8 +51,8 @@
         @foreach ($exams as $i => $exam)
             <div class="pt-1">
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100 overflow-hidden shadow-sm sm:rounded-lg">
-                        <div class="ps-2 pe-6 py-2 order-b border-gray-200">
+                    <div class="bg-light-bg-secondary dark:bg-dark-bg-secondary text-light-text-primary dark:text-dark-text-primary overflow-hidden shadow-sm sm:rounded-lg">
+                        <div class="ps-2 pe-6 py-2 order-b border-dark-bg">
                             <div class="flex">
                                 <div class="flex basis-10 justify-center">
                                     {{ $exam['sumOfExam'] }}
@@ -66,7 +66,7 @@
                                     
                                     <div class="exam-type flex flex-inline font-bold 
                                         @php 
-                                            echo (($text == 0) ? "error text-red-600" : "");
+                                            echo (($text == 0) ? " text-red-600" : "");
                                             echo "\">";
                                             if ($text == 0) {
                                                 echo ("
@@ -96,13 +96,13 @@
 
                                     @foreach ($payers as $j => $payer)
                                         <div class="flex">
-                                            <div class="flex text-slate-400 basis-10 justify-center">
+                                            <div class="flex text-light-text-secondary dark:text-dark-text-secondary basis-10 justify-center">
                                                 {{ $payer['sum'] }}
                                             </div>
                                             <div>
                                                 {{ $payer['name'] }}
                                             </div>
-                                            <div class="flex pl-2 text-slate-400">
+                                            <div class="flex pl-2 text-light-text-secondary dark:text-dark-text-secondary">
                                                 @php
                                                     $formatedText = new NumberFormatter('de-DE', NumberFormatter::DECIMAL);
                                                     $text = $formatedText->format($payer['amount']);
@@ -124,13 +124,13 @@
     <div class="text-area pt-1 hidden">
         <div class="pt-1">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100 overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="flex text-xl font-bold justify-center dark:text-slate-800 bg-red-300 dark:bg-red-500 ps-2 pe-6 py-2 order-b border-gray-200 select-all cursor-pointer">
+                <div class="bg-light-bg-secondary dark:bg-dark-bg-secondary text-light-text-primarydark:text-dark-text-primary overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="flex text-xl font-bold justify-center dark:text-light-text-primarybg-red-300 dark:bg-red-500 ps-2 pe-6 py-2 order-b border-gray-200 select-all cursor-pointer">
 
                         Kliknij poniżej i skopiuj do maila
 
                     </div>
-                    <div id="myInput" class="font-mono ps-2 pe-6 py-2 order-b border-gray-200 select-all cursor-pointer bg-white text-black">
+                    <div id="myInput" class="font-mono ps-2 pe-6 py-2 order-b border-dark-bg select-all cursor-pointer bg-white text-black">
                         {{ $sheetName }}<br>
 
                         Wykaz przeprowadzonych {{ $sumOfExams }} badań {{ $examType }}.<br>
@@ -186,8 +186,8 @@
 
     <div class="report-area pt-8">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-slate-700 text-slate-400 dark:text-gray-500 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="flex justify-end py-2 px-6 text-sm order-b border-gray-200">
+            <div class="bg-light-bg-secondary dark:bg-dark-bg-secondary text-light-text-secondary dark:text-dark-text-secondaryoverflow-hidden shadow-sm sm:rounded-lg">
+                <div class="flex justify-end py-2 px-6 text-sm opacity-50">
                     plik: {{ $file }}
                 </div>
             </div>
@@ -199,9 +199,6 @@
     <script type="text/javascript">
 
         function switchToText() {
-            // $('#report-area').toggleClass('hidden', true);
-            // $('#text-area').toggleClass('hidden', false);
-
             var elra = document.getElementsByClassName("report-area");
             var elta = document.getElementsByClassName("text-area");
             Array.prototype.forEach.call(elra, function(el) {

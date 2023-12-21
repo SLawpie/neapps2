@@ -1,12 +1,12 @@
 <x-app-layout>
     <x-slot:header>
         <div class="flex">
-            <div class="h-6 -ms-1  text-slate-800 dark:text-gray-100">
+            <div class="h-6 -ms-1  text-light-text-primary dark:text-dark-text-primary">
                 <a href="{{ route('user.edit', Crypt::encryptString(Auth::user()->id)) }}">
                     <x-icons.chevron-double-left class="pe-2"/>
                 </a>
             </div>
-            <h2 class="bg-white dark:bg-slate-700 font-semibold text-xl text-slate-800 dark:text-gray-100 leading-tight">
+            <h2 class="bg-light-bg-secondary dark:bg-dark-bg-secondary font-semibold text-xl text-light-text-primary dark:text-dark-text-primary leading-tight">
                 Zmiana hasła
             </h2>
         </div>
@@ -36,8 +36,8 @@
                 </div>
                 @endif
 
-                <div class="bg-white dark:bg-slate-700 text-slate-800 dark:text-gray-100 shadow-sm sm:rounded-lg">
-                    <div class="sm:flex items-center px-4 py-6 sm:px-6 border-gray-200">
+                <div class="bg-light-bg-secondary dark:bg-dark-bg-secondary text-light-text-primary dark:text-dark-text-primary shadow-sm sm:rounded-lg">
+                    <div class="sm:flex items-center px-4 py-6 sm:px-6 border-dark-bg">
                         <div class="sm:flex-none w-full">
                             <div class="flex justify-between">
                                 <div class="text-xl font-bold pb-4">
@@ -58,7 +58,7 @@
                                             id="password"
                                             type="password" 
                                             name="password" 
-                                            class="h-10 placeholder:text-slate-800/30 dark:placeholder:text-gray-100/30"
+                                            class="h-10 placeholder:text-light-text-primary/30 dark:placeholder:text-dark-text-primary/30"
                                             placeholder="obecne hasło"
                                         />
 
@@ -73,7 +73,7 @@
                                             id="newpassword"
                                             type="password" 
                                             name="newpassword" 
-                                            class="h-10 placeholder:text-slate-800/30 dark:placeholder:text-gray-100/30"
+                                            class="h-10 placeholder:text-light-text-primary/30 dark:placeholder:text-dark-text-primary/30"
                                             placeholder="nowe hasło"
                                         />
 
@@ -85,7 +85,7 @@
                                             id="confirm-newpassword"
                                             type="password" 
                                             name="confirm-newpassword" 
-                                            class="h-10 placeholder:text-slate-800/30 dark:placeholder:text-gray-100/30"
+                                            class="h-10 placeholder:text-light-text-primary/30 dark:placeholder:text-dark-text-primary/30"
                                             placeholder="potwierdź nowe hasło"
                                         />
 
